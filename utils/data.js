@@ -1,0 +1,1 @@
+const names = ['Sachi', 'Julia', 'Meghan', 'Stephanie', 'Sara', 'Katie', 'Jenny', 'Kelsey', 'Kaitlyn', 'Katherine', 'Kathryn', 'Kathleen', 'Katie', 'K', 'Bev', 'Kelly', 'Jordon', 'Susan', 'Caroline', 'John'];
