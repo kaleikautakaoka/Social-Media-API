@@ -1,9 +1,11 @@
-const mongoose = require('mongoose');
-// connect mongoose to the mongo db and parse incoming data as json
+const { connect, connection } = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/socialmediaDB', { useNewUrlParser: true, useUnifiedTopology: true });
+const connectionString =
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialmediaDB';
 
-//log mongo queries being executed
-mongoose.set('debug', true);
+connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-module.exports = mongoose.connection;
+module.exports = connection;
