@@ -34,8 +34,8 @@ const commentSchema = new Schema(
 commentSchema.virtual('replyCount').get(function () {
     return this.replies.length;
 });
-// create the comment model using the commentSchema
-const Comment = model('Comment', commentSchema);
+
+
 
 // export the comment model
-module.exports = Comment;
+module.exports = commentSchema;
