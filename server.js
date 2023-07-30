@@ -1,15 +1,24 @@
 // import dependencies
 const express = require('express');
-//body parser is used to parse incoming request bodies in a middleware before your handlers, available under the req.body property.
-const bodyParser = require('body-parser');
 const db = require('./db');
 const router = require('./routes');
+// create new express app and save it as "app"
+const app = express();
 
 //cwd = current working directory
 const cwd = process.cwd();
 
 // server configuration
-const PORT = process.env.PORT || 3001;
-// create new express app and save it as "app"
-const app = express();
+const PORT = process.env.PORT || 27017;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
+
+// make the server listen to requests
+db.once('open', () => {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+);
 

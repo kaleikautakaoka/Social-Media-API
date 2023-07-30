@@ -1,0 +1,16 @@
+# ignore .git and .cache folders .git .cache
+.git .cache
+# ignore all *.class files in all folders, including build root **/*.class
+.git .cache **/*.class
+# ignore all markdown files (md) beside all README*.md other than README-secret.md *.md !README*.md README-secret.md
+.git .cache **/*.class *.md !README*.md README-secret.md
+#Ignore logs directory
+logs/
+#Ignore all package-lock.json files
+package-lock.json
+#Ignore all passwords
+*.secret
+#Ignore all .env files
+.env
+#Ignore all .DS_Store files
+.DS_Store
