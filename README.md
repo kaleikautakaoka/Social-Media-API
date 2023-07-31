@@ -47,7 +47,7 @@ An API for a social media site that uses NoSQL
 
   ## Technologies
   ---
-  Node.js, Inquirer, Javascript, Mysql2, tableConsole, dotenv
+  Node.js, express, Javascript, Mongoose, bycrypt, dotenv, MongoDB, Insomnia Core, nodemon
 
   ## Contributors
   ---
