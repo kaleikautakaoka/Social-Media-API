@@ -7,11 +7,11 @@ const app = express();
 
 //cwd = current working directory
 const cwd = process.cwd();
-
 // server configuration
 const PORT = process.env.PORT || 3001;
-app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(routes);
 
 // make the server listen to requests
