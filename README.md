@@ -21,11 +21,11 @@ An API for a social media site that uses NoSQL
 
   ## ScreenShot
   ---
-  ![Screenshot of database]()
+  ![Screenshot of database](images/seedDBsocialAPI.png)
 
   ## Video of passing tests
   ---
- [Untitled Video Fri Jun 30 2023](https://app.castify.com/view/ec084d16-cb47-4474-a19b-c98a9fce64f8)
+ [Walkthrough Video](https://app.castify.com/view/ec084d16-cb47-4474-a19b-c98a9fce64f8)
 
 
   ## Technologies
