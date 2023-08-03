@@ -22,11 +22,17 @@ const commentSchema = new Schema(
         }
     },
     {
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+
+          }]
+    },
+    {
         toJSON: {
             virtuals: true
         },
-        // prevents virtuals from creating duplicate of _id as `id`
-        id: false,
     }
 );
 
@@ -35,6 +41,7 @@ commentSchema.virtual('replyCount').get(function () {
     return this.replies.length;
 });
 
+const Comments = model('comments', commentSchema);
 
 
 // export the comment model
