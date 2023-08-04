@@ -16,19 +16,27 @@ const userSchema = new Schema(
             unique: true,
             match: [/.+@.+\..+/]
         },
-        comment: [commentSchema],
+
+        comment: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Comment'
+            }
+        ],
+       
         friends: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
-        ]
-    },
-    {
+        ],
+        
         toJSON: {
             virtuals: true
         }
-        }
+        
+    }
+
     
 );
 
