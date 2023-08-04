@@ -1,6 +1,7 @@
 const { User, Comment } = require('../models');
 
 
+
 const userController = {
     // get all users
     getAllUser(req, res) {
@@ -19,6 +20,9 @@ const userController = {
             );
     },
 
+
+
+    
     // get one user by id
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
