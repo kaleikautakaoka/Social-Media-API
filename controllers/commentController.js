@@ -2,8 +2,11 @@ const { Comment, User } = require('../models');
 const { params } = require('../routes/api/user-routes');
 
 
+
 const commentController = {
+
    getAllComment(req, res) {
+
         Comment.find({})
             .populate({
                 path: 'user',
@@ -16,8 +19,12 @@ const commentController = {
                 console.log(err);
                 res.sendStatus(400);
             });
+
     },
+
+    
     getCommentById({ params }, res) {
+
         Comment.findOne({ _id: params.id })
             .then(dbCommentData => {
                 if (!dbCommentData) {
@@ -30,8 +37,12 @@ const commentController = {
                 console.log(err);
                 res.sendStatus(400);
             });
+
     },
+
+    
     createComment({ body }, res) {
+
         Comment.create(body)
             .then(dbCommentData => {
                 return User.findOneAndUpdate(
@@ -48,8 +59,12 @@ const commentController = {
                 res.json(dbUserData);
             })
             .catch(err => res.json(err));
+
     },
+
+    
     updateComment({ params, body }, res) {
+
         Comment.findOneAndUpdate({ _id: params.id }, body, { new: true })
             .then(dbCommentData => {
                 if (!dbCommentData) {
@@ -59,8 +74,12 @@ const commentController = {
                 res.json(dbCommentData);
             })
             .catch(err => res.status(400).json(err));
+
     },
+
+    
     deleteComment({ params }, res) {
+
         Comment.findOneAndDelete({ _id: params.id })
             .then(dbCommentData => {
                 if (!dbCommentData) {
@@ -70,26 +89,33 @@ const commentController = {
                 res.json(dbCommentData);
             })
             .catch(err => res.status(400).json(err));
+
     }
 
-    //add reaction to comment
+    
+    
     addReaction({ params, body }, res) {
+
         Comment.findOneAndUpdate(
             { _id: params.commentId },
             { $addToSet: { reactions: body } },
             { new: true }
         )
+
             .then(dbCommentData => {
                 if (!dbCommentData) {
                     res.status(404).json({ message: 'No comment found with this id!' });
                     return;
-                }
+            }
                 res.json(dbCommentData);
             })
             .catch(err => res.json(err));
+            
     },
-    //remove reaction from comment
+
+   
     removeReaction({ params }, res) {
+
         Comment.findOneAndUpdate(
             { _id: params.commentId },
             { $pull: { reactions: { reactionId: params.reactionId } } },
@@ -100,10 +126,6 @@ const commentController = {
     }
 
 };
-
-
-module.exports = commentController;
-
 
 
 module.exports = commentController;
