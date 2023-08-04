@@ -1,9 +1,11 @@
 const { Schema, model } = require('mongoose');
 const commentSchema = require('./comments');
 
-// create the user schema
+
+
 const userSchema = new Schema(
     {
+
         username: {
             type: String,
             unique: true,
@@ -47,5 +49,6 @@ userSchema.virtual('friendCount').get(function () {
 
 
 const User = model('User', userSchema);
+
 
 module.exports = User;
