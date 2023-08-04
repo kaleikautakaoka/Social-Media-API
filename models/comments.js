@@ -21,19 +21,9 @@ const commentSchema = new Schema(
         
         username: {
             type: String,
-            required: true
+            required: true,
+            ref: 'User'
         }
-    },
-
-    {
-
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-
-          }]
-
     },
     {
 

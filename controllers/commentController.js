@@ -2,7 +2,6 @@ const { Comment, User } = require('../models');
 const { params } = require('../routes/api/user-routes');
 
 
-
 const commentController = {
 
    getAllComment(req, res) {
